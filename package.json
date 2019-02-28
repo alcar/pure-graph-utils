@@ -1,0 +1,46 @@
+{
+  "name": "pure-graph-utils",
+  "version": "1.4.9",
+  "description": "Graph generation and handling utils, built with pure functions",
+  "main": "build/index.min.js",
+  "scripts": {
+    "build": "babel index.js -d build && minify build/index.js --out-file build/index.min.js",
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
+  },
+  "keywords": [
+    "pure",
+    "graph",
+    "utils",
+    "functional"
+  ],
+  "author": "Alan Carpilovsky",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alcar/pure-graph-utils.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
+    "babel-minify": "^0.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "deep-freeze": "^0.0.1",
+    "eslint": "^4.8.0",
+    "eslint-config-vtex": "^7.0.0",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "jest": "^21.2.1",
+    "ramda": "^0.24.1"
+  },
+  "dependencies": {},
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  }
+}
