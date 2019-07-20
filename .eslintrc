@@ -3,7 +3,7 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["vtex", "plugin:jest/recommended"],
+  "extends": ["eslint:recommended", "plugin:jest/recommended"],
   "plugins": ["fp", "jest"],
   "rules": {
     "fp/no-arguments": "error",
