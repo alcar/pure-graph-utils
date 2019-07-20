@@ -1,6 +1,6 @@
 {
   "name": "pure-graph-utils",
-  "version": "1.4.9",
+  "version": "1.4.10",
   "description": "Graph generation and handling utils, built with pure functions",
   "main": "build/index.min.js",
   "scripts": {
