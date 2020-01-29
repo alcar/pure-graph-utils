@@ -5,26 +5,23 @@
 **Graph generation and handling utils, built with pure functions.**
 
 ## Table of contents
-- [Quick foreword](#quick-foreword)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Development](#development)
-- [Next steps](#next-steps)
 
-## Quick foreword
-The motivation behind this project came from a strong interest in functional programming and a desire to learn more about — and practice — [TDD](https://en.wikipedia.org/wiki/Test-driven_development), [Jest](https://facebook.github.io/jest/), [CI](https://en.wikipedia.org/wiki/Continuous_integration), [ES6](http://es6-features.org), [Ramda](http://ramdajs.com/), etc. As a relative beginner to JavaScript, building a small library such as this one felt like a good starting step. Issues, PRs, suggestions and/or opinions are all more than welcome!
+- [Installation](#installation)
+- [API](#api)
+- [Development](#development)
 
 ## Installation
-There are no dependencies. To install it using [npm](https://www.npmjs.com/), just run:
 
 ```
 npm install pure-graph-utils
 ```
 
-## Usage
-Below are all available functions, along with very brief explanations and simple examples. To get a better grasp of each function's behavior and edge cases, please check the [tests file](/index.test.js).
+## API
+
+_To get a better grasp of each function's behavior, please check the [tests file](/index.test.js)._
 
 ### createNode(id, value)
+
 Returns an object with an 'id' and a 'value' properties.
 
 ```js
@@ -38,6 +35,7 @@ createNode('nodeId', 'nodeValue')
 ```
 
 ### changeNodeId(newId, node)
+
 Returns a new node with `newNode.id === newId`.
 
 ```js
@@ -54,6 +52,7 @@ changeNodeId(
 ```
 
 ### addNodeProperty(propKey, propValue, node)
+
 Returns a new node with `newNode[propKey] === propValue`.
 
 ```js
@@ -72,6 +71,7 @@ addNodeProperty(
 ```
 
 ### editNodeProperty(propKey, propNewValue, node)
+
 Returns a new node with `newNode[propKey] === propNewValue`.
 
 ```js
@@ -89,6 +89,7 @@ editNodeProperty(
 ```
 
 ### removeNodeProperty(propKey, node)
+
 Returns a new node without propKey.
 
 ```js
@@ -104,6 +105,7 @@ removeNodeProperty(
 ```
 
 ### createGraph(node)
+
 Returns an object with node.
 
 ```js
@@ -120,6 +122,7 @@ createGraph(createNode('nodeId', 'nodeValue'))
 ```
 
 ### changeGraphNodeId(nodeId, nodeNewId, graph)
+
 Returns a new graph with `graph[nodeId]` adapted to `newGraph[nodeNewId]`.
 
 ```js
@@ -140,6 +143,7 @@ changeGraphNodeId(
 ```
 
 ### addNode(node, graph)
+
 Returns a new graph with node.
 
 ```js
@@ -164,6 +168,7 @@ addNode(
 ```
 
 ### addGraphNodeProperty(nodeId, propKey, propValue, graph)
+
 Returns a new graph with `newGraph[nodeId][propKey] === propValue`.
 
 ```js
@@ -186,6 +191,7 @@ addGraphNodeProperty(
 ```
 
 ### editGraphNodeProperty(nodeId, propKey, propNewValue, graph)
+
 Returns a new graph with `newGraph[nodeId][propKey] === propNewValue`.
 
 ```js
@@ -207,6 +213,7 @@ editGraphNodeProperty(
 ```
 
 ### removeGraphNodeProperty(nodeId, propKey, graph)
+
 Returns a new graph without `graph[nodeId]`'s propKey.
 
 ```js
@@ -226,6 +233,7 @@ removeGraphNodeProperty(
 ```
 
 ### addConnection(nodeAId, nodeBId, graph)
+
 Returns a new graph with nodeA and nodeB connected.
 
 ```js
@@ -255,6 +263,7 @@ addConnection(
 ```
 
 ### removeConnection(nodeAId, nodeBId, graph)
+
 Returns a new graph with nodeA and nodeB disconnected.
 
 ```js
@@ -288,6 +297,7 @@ removeConnection(
 ```
 
 ### removeAllConnections(nodeId, graph)
+
 Returns a new graph with `graph[nodeId]` disconnected from other nodes.
 
 ```js
@@ -336,6 +346,7 @@ removeAllConnections(
 ```
 
 ### removeNode(nodeId, graph)
+
 Returns a new graph without `graph[nodeId]`.
 
 ```js
@@ -358,21 +369,23 @@ removeNode(
 ```
 
 ## Development
-### Testing ([Jest](https://facebook.github.io/jest/))
-To run all tests once, use:
+
+### Testing
+
+#### Single run
+
 ```
 npm run test
 ```
 
-To run a watcher that reruns tests related to changed files, use:
+#### Watch mode
+
 ```
 npm run test:watch
 ```
 
-### Building ([Babel](https://babeljs.io/))
+### Building
+
 ```
 npm run build
 ```
-
-## Next steps
-- More functions?
