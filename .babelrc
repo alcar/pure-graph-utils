@@ -1,4 +1,9 @@
 {
-  "presets": ["@babel/preset-env"],
-  "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    }
+  },
+  "plugins": ["@babel/plugin-proposal-object-rest-spread"],
+  "presets": ["@babel/preset-env"]
 }

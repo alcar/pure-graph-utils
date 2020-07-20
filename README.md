@@ -1,6 +1,6 @@
 # pure-graph-utils
 
-[![npm](https://img.shields.io/npm/v/pure-graph-utils.svg)](https://www.npmjs.com/package/pure-graph-utils) [![Build Status](https://travis-ci.org/alcar/pure-graph-utils.svg?branch=master)](https://travis-ci.org/alcar/pure-graph-utils) [![Github file size](https://img.shields.io/github/size/alcar/pure-graph-utils/build/index.min.js.svg)](https://github.com/alcar/pure-graph-utils/blob/master/build/index.min.js)
+[![npm](https://img.shields.io/npm/v/pure-graph-utils.svg)](https://www.npmjs.com/package/pure-graph-utils) [![Build Status](https://travis-ci.org/alcar/pure-graph-utils.svg?branch=master)](https://travis-ci.org/alcar/pure-graph-utils) [![Github file size](https://img.shields.io/github/size/alcar/pure-graph-utils/build/index.js.svg)](https://github.com/alcar/pure-graph-utils/blob/master/build/index.js)
 
 **Graph generation and handling utils, built with pure functions.**
 

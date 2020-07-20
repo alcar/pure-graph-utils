@@ -122,7 +122,7 @@ describe('addNodeProperty(propKey, propValue, node)', () => {
     const node = addNodeProperty(
       'extraProperty',
       'extraPropertyValue',
-      undefined
+      undefined,
     )
 
     expect(node).toEqual(EMPTY_NODE)
@@ -169,7 +169,7 @@ describe('addNodeProperty(propKey, propValue, node)', () => {
     const newNode = addNodeProperty(
       'newExtraProperty',
       'newExtraPropertyValue',
-      node
+      node,
     )
 
     const expectedGraph = {
@@ -199,7 +199,7 @@ describe('editNodeProperty(propKey, propNewValue, node)', () => {
     const node = editNodeProperty(
       'nodeProperty',
       'nodePropertyNewValue',
-      undefined
+      undefined,
     )
 
     expect(node).toEqual(EMPTY_NODE)
@@ -247,7 +247,7 @@ describe('editNodeProperty(propKey, propNewValue, node)', () => {
       deepFreeze,
       R.partial(addNodeProperty, ['extraProperty3', ['extraProperty3', 3]]),
       R.partial(addNodeProperty, ['extraProperty2', 2]),
-      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value'])
+      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value']),
     )(createNode('nodeId', 'nodeValue'))
 
     const newNode = editNodeProperty('extraProperty2', [1, 2, 3], node)
@@ -309,7 +309,7 @@ describe('removeNodeProperty(propKey, node)', () => {
       deepFreeze,
       R.partial(addNodeProperty, ['extraProperty3', ['extraProperty3', 3]]),
       R.partial(addNodeProperty, ['extraProperty2', 2]),
-      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value'])
+      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value']),
     )(createNode('nodeId', 'nodeValue'))
 
     const newNode = removeNodeProperty('extraProperty2', node)
@@ -375,7 +375,7 @@ describe('createGraph(node)', () => {
       deepFreeze,
       R.partial(addNodeProperty, ['extraProperty3', ['extraProperty3', 3]]),
       R.partial(addNodeProperty, ['extraProperty2', 2]),
-      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value'])
+      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value']),
     )(createNode('nodeId', 'nodeValue'))
 
     const graph = createGraph(node)
@@ -468,7 +468,7 @@ describe('addNode(node, graph)', () => {
     const node = R.compose(
       R.partial(addNodeProperty, ['extraProperty3', ['extraProperty3', 3]]),
       R.partial(addNodeProperty, ['extraProperty2', 2]),
-      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value'])
+      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value']),
     )(createNode('nodeId', 'nodeValue'))
     const graph = R.compose(deepFreeze, createGraph)(node)
 
@@ -527,7 +527,7 @@ describe('changeGraphNodeId(nodeId, nodeNewId, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = changeGraphNodeId('id99', 'nodeNewId', graph)
@@ -555,7 +555,7 @@ describe('changeGraphNodeId(nodeId, nodeNewId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = changeGraphNodeId(nodeB.id, 'nodeBNewId', graph)
@@ -583,7 +583,7 @@ describe('changeGraphNodeId(nodeId, nodeNewId, graph)', () => {
     const node = R.compose(
       R.partial(addNodeProperty, ['extraProperty3', ['extraProperty3', 3]]),
       R.partial(addNodeProperty, ['extraProperty2', 2]),
-      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value'])
+      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value']),
     )(createNode('nodeId', 'nodeValue'))
     const graph = R.compose(deepFreeze, createGraph)(node)
 
@@ -610,7 +610,7 @@ describe('addGraphNodeProperty(nodeId, propKey, propValue, graph)', () => {
       node.id,
       'extraProperty',
       'extraPropertyValue',
-      graph
+      graph,
     )
 
     const expectedGraph = {
@@ -631,7 +631,7 @@ describe('addGraphNodeProperty(nodeId, propKey, propValue, graph)', () => {
       node.id,
       'extraProperty',
       'extraPropertyValue',
-      undefined
+      undefined,
     )
 
     expect(graph).toEqual(EMPTY_GRAPH)
@@ -645,7 +645,7 @@ describe('addGraphNodeProperty(nodeId, propKey, propValue, graph)', () => {
       undefined,
       'extraProperty',
       'extraPropertyValue',
-      graph
+      graph,
     )
 
     expect(newGraph).toBe(graph)
@@ -659,7 +659,7 @@ describe('addGraphNodeProperty(nodeId, propKey, propValue, graph)', () => {
       node.id,
       undefined,
       'extraPropertyValue',
-      graph
+      graph,
     )
 
     expect(newGraph).toBe(graph)
@@ -671,14 +671,14 @@ describe('addGraphNodeProperty(nodeId, propKey, propValue, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = addGraphNodeProperty(
       'id99',
       'extraProperty',
       'extraPropertyValue',
-      graph
+      graph,
     )
 
     expect(newGraph).toBe(graph)
@@ -701,7 +701,7 @@ describe('addGraphNodeProperty(nodeId, propKey, propValue, graph)', () => {
       node.id,
       'extraProperty',
       undefined,
-      graph
+      graph,
     )
 
     const expectedGraph = {
@@ -716,7 +716,7 @@ describe('addGraphNodeProperty(nodeId, propKey, propValue, graph)', () => {
     const node = R.compose(
       R.partial(addNodeProperty, ['extraProperty3', ['extraProperty3', 3]]),
       R.partial(addNodeProperty, ['extraProperty2', 2]),
-      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value'])
+      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value']),
     )(createNode('nodeId', 'nodeValue'))
     const graph = R.compose(deepFreeze, createGraph)(node)
 
@@ -724,7 +724,7 @@ describe('addGraphNodeProperty(nodeId, propKey, propValue, graph)', () => {
       node.id,
       'newExtraProperty',
       'newExtraPropertyValue',
-      graph
+      graph,
     )
 
     const expectedGraph = {
@@ -773,7 +773,7 @@ describe('editGraphNodeProperty(nodeId, propKey, propNewValue, graph)', () => {
       undefined,
       'value',
       'newValue',
-      graph
+      graph,
     )
 
     expect(newGraph).toBe(graph)
@@ -787,7 +787,7 @@ describe('editGraphNodeProperty(nodeId, propKey, propNewValue, graph)', () => {
       node.id,
       undefined,
       'nodePropertyNewValue',
-      graph
+      graph,
     )
 
     expect(newGraph).toBe(graph)
@@ -799,7 +799,7 @@ describe('editGraphNodeProperty(nodeId, propKey, propNewValue, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = editGraphNodeProperty('id99', 'value', 'newValue', graph)
@@ -815,7 +815,7 @@ describe('editGraphNodeProperty(nodeId, propKey, propNewValue, graph)', () => {
       node.id,
       'property99',
       'property99NewValue',
-      graph
+      graph,
     )
 
     expect(newGraph).toBe(graph)
@@ -825,12 +825,7 @@ describe('editGraphNodeProperty(nodeId, propKey, propNewValue, graph)', () => {
     const node = createNode('nodeId', 'nodeValue')
     const graph = R.compose(deepFreeze, createGraph)(node)
 
-    const newGraph = editGraphNodeProperty(
-      node.id,
-      'value',
-      node.value,
-      graph
-    )
+    const newGraph = editGraphNodeProperty(node.id, 'value', node.value, graph)
 
     expect(newGraph).toBe(graph)
   })
@@ -852,7 +847,7 @@ describe('editGraphNodeProperty(nodeId, propKey, propNewValue, graph)', () => {
       node.id,
       'connections',
       ['id1', 'id2'],
-      graph
+      graph,
     )
 
     expect(newGraph).toBe(graph)
@@ -876,7 +871,7 @@ describe('editGraphNodeProperty(nodeId, propKey, propNewValue, graph)', () => {
     const node = R.compose(
       R.partial(addNodeProperty, ['extraProperty3', ['extraProperty3', 3]]),
       R.partial(addNodeProperty, ['extraProperty2', 2]),
-      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value'])
+      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value']),
     )(createNode('nodeId', 'nodeValue'))
     const graph = R.compose(deepFreeze, createGraph)(node)
 
@@ -884,7 +879,7 @@ describe('editGraphNodeProperty(nodeId, propKey, propNewValue, graph)', () => {
       node.id,
       'extraProperty2',
       [1, 2, 3],
-      graph
+      graph,
     )
 
     const expectedGraph = {
@@ -948,7 +943,7 @@ describe('removeGraphNodeProperty(nodeId, propKey, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeGraphNodeProperty('id99', 'value', graph)
@@ -987,7 +982,7 @@ describe('removeGraphNodeProperty(nodeId, propKey, graph)', () => {
     const node = R.compose(
       R.partial(addNodeProperty, ['extraProperty3', ['extraProperty3', 3]]),
       R.partial(addNodeProperty, ['extraProperty2', 2]),
-      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value'])
+      R.partial(addNodeProperty, ['extraProperty1', 'extraProperty1Value']),
     )(createNode('nodeId', 'nodeValue'))
     const graph = R.compose(deepFreeze, createGraph)(node)
 
@@ -1014,7 +1009,7 @@ describe('addConnection(nodeAId, nodeBId, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = addConnection(nodeA.id, nodeB.id, graph)
@@ -1041,7 +1036,7 @@ describe('addConnection(nodeAId, nodeBId, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = addConnection(undefined, nodeB.id, graph)
@@ -1055,7 +1050,7 @@ describe('addConnection(nodeAId, nodeBId, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = addConnection(nodeA.id, undefined, graph)
@@ -1069,7 +1064,7 @@ describe('addConnection(nodeAId, nodeBId, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = addConnection('id99', nodeB, graph)
@@ -1083,7 +1078,7 @@ describe('addConnection(nodeAId, nodeBId, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = addConnection(nodeA, 'id99', graph)
@@ -1101,7 +1096,7 @@ describe('addConnection(nodeAId, nodeBId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = addConnection(nodeB.id, nodeC.id, graph)
@@ -1119,7 +1114,7 @@ describe('addConnection(nodeAId, nodeBId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = addConnection(nodeA.id, nodeC.id, graph)
@@ -1151,7 +1146,7 @@ describe('removeConnection(nodeAId, nodeBId, graph)', () => {
       deepFreeze,
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeConnection(nodeA.id, nodeB.id, graph)
@@ -1179,7 +1174,7 @@ describe('removeConnection(nodeAId, nodeBId, graph)', () => {
       deepFreeze,
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeConnection(undefined, nodeB.id, graph)
@@ -1194,7 +1189,7 @@ describe('removeConnection(nodeAId, nodeBId, graph)', () => {
       deepFreeze,
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeConnection(nodeA.id, undefined, graph)
@@ -1209,7 +1204,7 @@ describe('removeConnection(nodeAId, nodeBId, graph)', () => {
       deepFreeze,
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeConnection('id99', nodeB.id, graph)
@@ -1224,7 +1219,7 @@ describe('removeConnection(nodeAId, nodeBId, graph)', () => {
       deepFreeze,
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeConnection(nodeA.id, 'id99', graph)
@@ -1242,7 +1237,7 @@ describe('removeConnection(nodeAId, nodeBId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeConnection(nodeA.id, nodeC.id, graph)
@@ -1261,7 +1256,7 @@ describe('removeConnection(nodeAId, nodeBId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeConnection(nodeA.id, nodeC.id, graph)
@@ -1296,7 +1291,7 @@ describe('removeAllConnections(nodeId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeAllConnections(nodeB.id, graph)
@@ -1353,7 +1348,7 @@ describe('removeAllConnections(nodeId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeC.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeAllConnections(nodeB.id, graph)
@@ -1372,7 +1367,7 @@ describe('removeAllConnections(nodeId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeAllConnections(nodeB.id, graph)
@@ -1405,7 +1400,7 @@ describe('removeNode(nodeId, graph)', () => {
       deepFreeze,
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeNode(nodeB.id, graph)
@@ -1431,7 +1426,7 @@ describe('removeNode(nodeId, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeNode(undefined, graph)
@@ -1445,7 +1440,7 @@ describe('removeNode(nodeId, graph)', () => {
     const graph = R.compose(
       deepFreeze,
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeNode('id99', graph)
@@ -1464,7 +1459,7 @@ describe('removeNode(nodeId, graph)', () => {
       R.partial(addConnection, [nodeA.id, nodeB.id]),
       R.partial(addNode, [nodeC]),
       R.partial(addNode, [nodeB]),
-      createGraph
+      createGraph,
     )(nodeA)
 
     const newGraph = removeNode(nodeB.id, graph)

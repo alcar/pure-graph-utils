@@ -4,6 +4,7 @@
     "jest": true
   },
   "extends": ["eslint:recommended", "plugin:jest/recommended"],
+  "parser": "babel-eslint",
   "plugins": ["fp", "jest"],
   "rules": {
     "fp/no-arguments": "error",
