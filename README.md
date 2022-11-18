@@ -4,6 +4,10 @@
 
 **Graph generation and handling utils, built with pure functions.**
 
+## Disclaimer
+
+This project is no longer being maintained.
+
 ## Table of contents
 
 - [Installation](#installation)
